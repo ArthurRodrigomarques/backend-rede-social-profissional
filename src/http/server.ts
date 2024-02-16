@@ -11,6 +11,9 @@ import { getUniquePost } from "./routes/posts/unique-post";
 import { profileUser } from "./routes/profile/profile-user";
 import { updateProfile } from "./routes/profile/profile-update";
 
+import WebSocketChat from "./routes/ws/chat";
+import websocketPlugin from '@fastify/websocket';
+
 const app = fastify()
 
 // User
@@ -26,6 +29,9 @@ app.register(deletePost)
 app.register(getAllPosts)
 app.register(getUniquePost)
 app.register(updatePost)
+//chat
+app.register(websocketPlugin)
+app.register(WebSocketChat)
 
 app.listen({ port: 3333}).then(() => {
     console.log('Server started on http://localhost:3333')
