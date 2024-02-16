@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: bitnami/postgresql:latest
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=arthur
+      - POSTGRES_PASSWORD=dlink11
+      - POSTGRES_DB=redesocial
+    volumes:
+      - redesocial_pg_data:/bitnami/postgresql
+
+volumes:
+  redesocial_pg_data:
